@@ -1,0 +1,11 @@
+<ngb-toast *ngFor="let toast of toastService.toasts"
+           [ngClass]="toastClass(toast)"
+           [header]="toast.header" [delay]="toast.delay" [autohide]="!toast.sticky"
+           (hide)="hide(toast)">
+	<i class="fa fa-info" *ngIf="showInfoIcon(toast)"></i>
+	<i class="fa fa-check" *ngIf="showSuccessIcon(toast)"></i>
+	<i class="fa fa-exclamation-triangle" *ngIf="showWarningIcon(toast)"></i>
+	<i class="fa fa-exclamation-circle" *ngIf="showDangerIcon(toast)"></i>
+
+	{{toast.body}}
+</ngb-toast>
